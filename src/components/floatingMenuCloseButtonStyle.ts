@@ -1,0 +1,15 @@
+export const floatingMenuCloseButtonStyle = {
+  width: 28,
+  height: 28,
+  border: "1px solid var(--border)",
+  borderRadius: 8,
+  background: "var(--field-bg)",
+  color: "var(--text-muted)",
+  cursor: "pointer",
+  display: "grid",
+  placeItems: "center",
+  fontSize: 18,
+  lineHeight: 1,
+  padding: 0,
+  flexShrink: 0,
+} as const

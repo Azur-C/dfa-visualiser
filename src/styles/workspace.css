@@ -1,0 +1,198 @@
+.workspace {
+  min-width: 0; /* Prevent flex/grid blowout */
+  width: 100%;
+  background: var(--bg-soft);
+  padding: 14px;
+  overflow: auto; /* Allow scrolling if panels overflow */
+}
+
+.workspaceHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.workspaceMeta {
+  font-size: 12px;
+  color: #445;
+}
+
+.workspaceActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+/* Grid layout for DFA visualizer panels */
+.panelsGrid {
+  display: grid;
+  gap: 14px;
+}
+
+.panelsGrid.grid2x2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.panelsGrid.column {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+/* Individual DFA Panel styling */
+.panel {
+  min-width: 0;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 420px; /* Header auto height, fixed canvas height */
+}
+
+/* Panel header containing title and badges */
+.panelHeader {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.panelTitle {
+  font-weight: 800;
+  position: relative;
+  min-width: 0;
+}
+
+.panelMetaPills {
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.panelHeaderActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.panelActionBtn {
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  border-radius: 10px;
+  padding: 7px 10px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.panelActionBtnSmall {
+  padding: 5px 8px;
+  font-size: 11px;
+  border-radius: 8px;
+}
+
+.panelActionBtn:hover {
+  border-color: var(--color-primary);
+}
+
+.panelActionBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  background: #f5f7fb;
+  color: #7b8694;
+}
+
+.panelActionBtn:disabled:hover {
+  border-color: var(--border);
+}
+
+.panelActionBtnDanger {
+  border-color: #f2c7cd;
+  background: #fff6f7;
+  color: #b42318;
+}
+
+.panelActionBtnDanger:hover {
+  border-color: #e8929d;
+}
+
+.panelActionBtnDanger:disabled:hover {
+  border-color: #f2c7cd;
+}
+
+.panelIconBtn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--text);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  padding: 0;
+}
+
+.panelIconBtn:hover {
+  border-color: var(--color-primary);
+}
+
+.panelIconBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  background: #f5f7fb;
+  color: #7b8694;
+  border-color: var(--border);
+}
+
+.panelIconBtn:disabled:hover {
+  border-color: var(--border);
+}
+
+.panelIconBtnAccent {
+  border-color: #cfe9ff;
+  background: #eef7ff;
+  color: #155e95;
+}
+
+.panelIconBtnAccent:hover {
+  border-color: #78bdf5;
+  background: #e1f0ff;
+}
+
+.panelIconBtnAccent:disabled:hover {
+  border-color: var(--border);
+  background: #f5f7fb;
+}
+
+.panelIconBtnDanger {
+  border-color: #f2c7cd;
+  background: #fff6f7;
+  color: #b42318;
+}
+
+.panelIconBtnDanger:hover {
+  border-color: #e8929d;
+  background: #fff1f3;
+}
+
+.panelIconBtnDanger:disabled:hover {
+  border-color: var(--border);
+  background: #f5f7fb;
+}
+
+.floatingMenuIconBtn {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+}
+

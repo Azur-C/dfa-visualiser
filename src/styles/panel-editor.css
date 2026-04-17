@@ -1,0 +1,681 @@
+.floatingEditorMenu {
+  min-width: 200px;
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.2);
+  border: 1px solid rgba(148, 163, 184, 0.28);
+}
+
+.floatingEditorMenuNode {
+  background: #eaf5ff;
+  border-color: rgba(120, 189, 245, 0.7);
+  box-shadow: 0 14px 32px rgba(21, 94, 149, 0.18);
+}
+
+.floatingEditorMenuEdge {
+  min-width: 250px;
+  background: #eaf5ff;
+  border-color: rgba(120, 189, 245, 0.7);
+  box-shadow: 0 14px 32px rgba(21, 94, 149, 0.18);
+}
+
+.floatingEditorHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.floatingEditorHeaderActions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.floatingEditorTitle {
+  font-size: 12px;
+  font-weight: 800;
+  color: #172554;
+}
+
+.floatingEditorMenuEdge .floatingEditorTitle {
+  color: #172554;
+}
+
+.floatingEditorTags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.floatingEditorInputRow {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.floatingEditorInput {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  border-radius: 10px;
+  padding: 9px 11px;
+  font-size: 13px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #1e293b;
+}
+
+.floatingEditorInput:focus {
+  outline: none;
+  border-color: #78bdf5;
+  box-shadow: 0 0 0 3px rgba(120, 189, 245, 0.18);
+}
+
+.floatingEditorMenuEdge .floatingEditorInput:focus {
+  border-color: #78bdf5;
+  box-shadow: 0 0 0 3px rgba(120, 189, 245, 0.18);
+}
+
+.floatingEditorHelp {
+  font-size: 12px;
+  color: #475569;
+}
+
+.floatingEditorActionBtn {
+  background: #fff;
+  border-color: rgba(148, 163, 184, 0.45);
+  color: #1e293b;
+}
+
+.floatingEditorActionBtn:hover {
+  background: #fff;
+  border-color: #78bdf5;
+}
+
+/* Small informational badges (like states count, accept count) */
+.pill {
+  border: 1px solid #cfe9ff;
+  background: #eef7ff;
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.pill.isSuccess {
+  border-color: #b8e3c5;
+  background: #eaf8ef;
+  color: #17603a;
+}
+
+.pill.isMinimal {
+  border-color: #9fded4;
+  background: #ecfbf7;
+  color: #0f766e;
+}
+
+.issuePillBtn {
+  border: 1px solid #cfe9ff;
+  background: #eef7ff;
+  color: #155e95;
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.issuePillBtn:hover {
+  border-color: #78bdf5;
+  background: #e1f0ff;
+}
+
+.issuePillBtn.isValidation {
+  border-color: #f2c7cd;
+  background: #fff4f4;
+  color: #b42318;
+}
+
+.issuePillBtn.isValidation:hover {
+  border-color: #e8929d;
+  background: #fff0f2;
+}
+
+.issuePillBtn.isCompleteness {
+  border-color: #f3d8a7;
+  background: #fff6df;
+  color: #9a6700;
+}
+
+.issuePillBtn.isCompleteness:hover {
+  border-color: #e7bd68;
+  background: #fff1cc;
+}
+
+.issuePillBtn.hasWarnings {
+  border-color: #f3d8a7;
+  background: #fff6df;
+  color: #9a6700;
+}
+
+.issuePillBtn.hasWarnings:hover {
+  border-color: #e7bd68;
+  background: #fff1cc;
+}
+
+.issuePillBtn.hasErrors {
+  border-color: #f2c7cd;
+  background: #fff4f4;
+  color: #b42318;
+}
+
+.issuePillBtn.hasErrors:hover {
+  border-color: #e8929d;
+  background: #fff0f2;
+}
+
+.issuePillBtn.hasIncomplete {
+  border-color: #e7bd68;
+  background: #fff1cc;
+  color: #9a6700;
+}
+
+.issuePillBtn.hasIncomplete:hover {
+  border-color: #d89a28;
+  background: #ffe7b0;
+}
+
+.issuePillLabel {
+  font-weight: 700;
+}
+
+.issuePillCount {
+  min-width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  padding: 0 5px;
+  background: rgba(255, 255, 255, 0.82);
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* Panel body where the React Flow canvas is rendered */
+.panelBody {
+  min-width: 0;
+  min-height: 0;
+  position: relative;
+}
+
+.panelFlowControls {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  z-index: 20;
+  display: grid;
+  gap: 0;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+}
+
+.panelFlowControlBtn {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-top: 1px solid var(--border);
+  background: #fff;
+  color: #334155;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.panelFlowControlBtn:first-child {
+  border-top: 0;
+}
+
+.panelFlowControlBtn:hover {
+  background: #f8fafc;
+}
+
+.panelFlowControlBtn.isLocked {
+  color: #b42318;
+}
+
+.panelFlowControlBtn.isUnlocked {
+  color: #17603a;
+}
+
+/* Make target nodes glow when dragging a connection over them */
+.react-flow__node.target-glow .custom-dfa-node {
+  box-shadow: 0 0 0 4px rgba(255, 165, 0, 0.6) !important;
+  border-color: #ffa500 !important;
+  transition: all 0.2s ease;
+}
+
+.issuePanel {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 10px);
+  width: min(360px, calc(100vw - 72px));
+  max-height: 260px;
+  overflow: auto;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.14);
+  display: grid;
+  gap: 12px;
+  z-index: 40;
+}
+
+.issuePanel.completeness {
+  border-color: #f3d8a7;
+}
+
+.issuePanelHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.issuePanelTitle {
+  font-size: 13px;
+  font-weight: 800;
+  color: #223;
+}
+
+.issuePanelTitle.validation {
+  color: #b42318;
+}
+
+.issuePanelSummary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.issueCountBadge {
+  border-radius: 999px;
+  padding: 3px 8px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.issueCountBadge.error {
+  background: #fff1f2;
+  color: #b42318;
+  border: 1px solid #f2c7cd;
+}
+
+.issueCountBadge.warning {
+  background: #fff1f2;
+  color: #b42318;
+  border: 1px solid #f2c7cd;
+}
+
+.issueCountBadge.completeness {
+  background: #fff6df;
+  color: #9a6700;
+  border: 1px solid #f3d8a7;
+}
+
+.issueList {
+  display: grid;
+  gap: 8px;
+}
+
+.issueItem {
+  display: grid;
+  gap: 6px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fbfcfe;
+}
+
+.issueSeverity {
+  justify-self: start;
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.issueSeverity.error {
+  background: #fff1f2;
+  color: #b42318;
+}
+
+.issueSeverity.warning {
+  background: #fff1f2;
+  color: #b42318;
+}
+
+.issueSeverity.completeness {
+  background: #fff6df;
+  color: #9a6700;
+}
+
+.issueMessage {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #334155;
+}
+
+/* Right sidebar container (used in Text Mode for code editing) */
+.rightbar {
+  border-left: 1px solid var(--border);
+  background: #fff;
+  padding: 0;
+  overflow: auto;
+  min-width: 0;
+}
+
+.rightbar h3 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.rightbarStickyHeader {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: #fff;
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  gap: 10px;
+}
+
+.rightbarContent {
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.textForm {
+  display: grid;
+  gap: 10px;
+}
+
+.emptyTextModeState {
+  border: 1px dashed var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  background: #f8fafc;
+  display: grid;
+  gap: 6px;
+}
+
+.emptyTextModeTitle {
+  font-size: 13px;
+  font-weight: 800;
+  color: #334155;
+}
+
+.textField {
+  display: grid;
+  gap: 6px;
+}
+
+.textFieldGroup {
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid #cfe0f3;
+  border-radius: 14px;
+  background: #f6fbff;
+}
+
+.textFieldGroupHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.textFieldGroupTitle {
+  font-size: 12px;
+  font-weight: 800;
+  color: #1d4f91;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.textFieldGroupNote {
+  font-size: 12px;
+  line-height: 1.4;
+  color: #56708f;
+}
+
+.textFieldGroupRow {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.textFieldHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.textFieldHeaderLead {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.textFieldHeaderActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.textFieldLabel {
+  font-size: 12px;
+  font-weight: 700;
+  color: #334155;
+}
+
+.textFieldActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.symbolicModeNote {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.transitionFieldHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.transitionFieldActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.transitionColumns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, 1fr) 104px;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #667085;
+  padding: 0 2px;
+}
+
+.transitionRows {
+  display: grid;
+  gap: 8px;
+}
+
+.transitionRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, 1fr) 104px;
+  gap: 8px;
+}
+
+.transitionCell {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+}
+
+.transitionActionCell {
+  justify-items: center;
+}
+
+.transitionDraftSection {
+  display: grid;
+  gap: 8px;
+}
+
+.transitionDraftRow {
+  align-items: start;
+}
+
+.transitionCreateBtn {
+  width: 100%;
+  min-width: 0;
+}
+
+.transitionRowActions {
+  display: grid;
+  gap: 6px;
+  width: 100%;
+}
+
+.transitionRowActionBtn {
+  width: 100%;
+}
+
+.transitionDeleteBtn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #f2c7cd;
+  border-radius: 10px;
+  background: #fff6f7;
+  color: #b42318;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  padding: 0;
+}
+
+.transitionDeleteBtn:hover {
+  border-color: #e8929d;
+  background: #fff1f3;
+}
+
+.transitionDeleteBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  background: #f5f7fb;
+  border-color: var(--border);
+  color: #7b8694;
+}
+
+.transitionDeleteBtn:disabled:hover {
+  border-color: var(--border);
+  background: #f5f7fb;
+}
+
+.transitionEmptyState {
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  background: #f8fafc;
+  color: #667085;
+  font-size: 12px;
+}
+
+.textInput {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: #fff;
+  color: var(--text);
+  font-size: 13px;
+}
+
+.app input::placeholder,
+.app textarea::placeholder {
+  color: #a6b0bf;
+  opacity: 1;
+}
+
+.textInput:focus {
+  outline: 3px solid rgba(61, 169, 252, 0.25);
+  border-color: var(--color-primary);
+}
+
+.textInput:read-only {
+  background: #f8fafc;
+  color: #667085;
+}
+
+.textInputArea {
+  min-height: 140px;
+  resize: vertical;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
+
+/* Inline field error messages */
+.textFieldErrors {
+  display: grid;
+  gap: 4px;
+}
+
+.textFieldError {
+  font-size: 12px;
+  line-height: 1.45;
+  color: #b42318;
+}
+
+/* Helper text below the textbox */
+.smallNote {
+  font-size: 12px;
+  color: #445;
+  margin-top: 10px;
+}
+

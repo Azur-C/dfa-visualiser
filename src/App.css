@@ -1,0 +1,6 @@
+@import "./styles/theme.css";
+@import "./styles/base.css";
+@import "./styles/workspace.css";
+@import "./styles/panel-editor.css";
+@import "./styles/dialogs.css";
+@import "./styles/theme-overrides.css";

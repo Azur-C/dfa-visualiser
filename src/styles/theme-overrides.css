@@ -1,0 +1,301 @@
+.topbar,
+.rightbar,
+.rightbarStickyHeader,
+.panel,
+.appDialog,
+.symbolicHelpDialog,
+.floatingEditorMenu {
+  background: var(--surface);
+  color: var(--text);
+}
+
+.workspace {
+  background: var(--bg-soft);
+}
+
+.leftbar,
+.toolbtn.active,
+.topbar .seg button:hover,
+.randomDfaToggle.isOn {
+  background: var(--surface-tint);
+}
+
+.topbar .btn,
+.topbar .seg button,
+.toolbtn,
+.panelActionBtn,
+.panelIconBtn,
+.textInput,
+.operationDialogOption,
+.randomDfaToggle,
+.symbolicHelpItem code,
+.react-flow__controls button {
+  background: var(--field-bg);
+  color: var(--text);
+}
+
+.panelActionBtn:disabled,
+.toolbtn:disabled,
+.topbar .btn:disabled,
+.operationDialogOption:disabled,
+.randomDfaToggle:disabled,
+.textInput:read-only {
+  background: var(--disabled-bg);
+  color: var(--disabled-text);
+}
+
+.textInput:focus {
+  outline-color: var(--focus-ring);
+}
+
+.workspaceMeta,
+.smallNote,
+.operationDialogNote,
+.operationDialogOptionHint,
+.appDialogMessage,
+.symbolicHelpItem,
+.symbolicHelpSectionTitle,
+.issueMessage,
+.textFieldGroupNote {
+  color: var(--text-muted);
+}
+
+.appDialogTitle,
+.symbolicHelpTitle,
+.panelTitle,
+.textFieldLabel,
+.textFieldGroupTitle,
+.emptyTextModeTitle {
+  color: var(--text-heading);
+}
+
+.pill,
+.issuePillBtn {
+  background: var(--badge-bg);
+  border-color: var(--badge-border);
+  color: var(--badge-text);
+}
+
+.pill.isSuccess {
+  background: var(--badge-success-bg);
+  border-color: var(--badge-success-border);
+  color: var(--badge-success-text);
+}
+
+.pill.isMinimal {
+  background: var(--badge-minimal-bg);
+  border-color: var(--badge-minimal-border);
+  color: var(--badge-minimal-text);
+}
+
+.issuePillBtn:hover {
+  background: var(--surface-tint-soft);
+  border-color: var(--color-primary);
+}
+
+.issuePillBtn.isValidation,
+.issuePillBtn.hasErrors {
+  background: var(--danger-bg);
+  border-color: var(--danger-border);
+  color: var(--danger);
+}
+
+.issuePillBtn.isValidation:hover,
+.issuePillBtn.hasErrors:hover {
+  background: var(--danger-soft-bg);
+  border-color: var(--danger-border-strong);
+}
+
+.issuePillBtn.isCompleteness,
+.issuePillBtn.hasIncomplete,
+.issuePillBtn.hasWarnings {
+  background: var(--warning-bg);
+  border-color: var(--warning-border);
+  color: var(--warning);
+}
+
+.issuePillBtn.isCompleteness:hover,
+.issuePillBtn.hasIncomplete:hover,
+.issuePillBtn.hasWarnings:hover {
+  background: var(--surface-tint-soft);
+  border-color: var(--warning-border);
+}
+
+.issuePillCount {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  color: currentColor;
+}
+
+.issuePanel.completeness {
+  border-color: var(--warning-border);
+}
+
+.issuePanelTitle.validation {
+  color: var(--danger);
+}
+
+.issueItem {
+  background: var(--surface-elevated);
+  border-color: var(--border);
+}
+
+.issueCountBadge.warning {
+  background: var(--danger-bg);
+  color: var(--danger);
+  border-color: var(--danger-border);
+}
+
+.issueCountBadge.completeness {
+  background: var(--warning-bg);
+  color: var(--warning);
+  border-color: var(--warning-border);
+}
+
+.panelFlowControls {
+  background: var(--canvas-control-bg);
+  border-color: var(--border);
+  box-shadow: var(--shadow-soft);
+}
+
+.panelFlowControlBtn {
+  background: var(--canvas-control-bg);
+  color: var(--canvas-control-text);
+  border-color: var(--border);
+}
+
+.panelFlowControlBtn:hover {
+  background: var(--canvas-control-hover-bg);
+}
+
+.panelFlowControlBtn.isLocked {
+  color: var(--danger);
+}
+
+.panelFlowControlBtn.isUnlocked {
+  color: var(--success);
+}
+
+.floatingEditorActionBtn {
+  background: var(--field-bg);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.floatingEditorActionBtn:hover {
+  background: var(--surface-tint-soft);
+  border-color: var(--color-primary);
+}
+
+.floatingEditorHelp {
+  color: var(--text-muted);
+}
+
+.emptyTextModeState,
+.transitionEmptyState,
+.issuePanel,
+.textFieldGroup {
+  background: var(--surface-soft);
+  border-color: var(--border);
+}
+
+.panelBody,
+.react-flow {
+  background: var(--surface);
+}
+
+.react-flow__controls {
+  box-shadow: var(--shadow-soft);
+}
+
+.react-flow__edge-path {
+  stroke: var(--graph-edge);
+}
+
+.panelIconBtnDanger,
+.transitionDeleteBtn {
+  color: var(--danger);
+  border-color: var(--danger-border);
+  background: var(--danger-soft-bg);
+}
+
+.panelIconBtnDanger:hover,
+.transitionDeleteBtn:hover {
+  border-color: var(--danger-border-strong);
+  background: var(--danger-bg);
+}
+
+.textFieldError,
+.issueSeverity.error,
+.issueSeverity.warning {
+  color: var(--danger);
+}
+
+.issueSeverity.error,
+.issueSeverity.warning {
+  background: var(--danger-bg);
+  border-color: var(--danger-border);
+}
+
+.issueSeverity.completeness {
+  background: var(--warning-bg);
+  color: var(--warning);
+  border-color: var(--warning-border);
+}
+
+.appDialogOverlay,
+.symbolicHelpOverlay {
+  background: var(--overlay);
+}
+
+.appDialog {
+  box-shadow: var(--shadow-dialog);
+}
+
+:root[data-theme="dark"] .react-flow__background pattern line,
+:root[data-theme="dark"] .react-flow__background pattern path {
+  stroke: #475569;
+}
+
+:root[data-theme="dark"] .floatingEditorMenu,
+:root[data-theme="dark"] .issuePanel,
+:root[data-theme="dark"] .appDialog,
+:root[data-theme="dark"] .symbolicHelpDialog {
+  box-shadow: var(--shadow-dialog);
+}
+
+:root[data-theme="dark"] .custom-dfa-node {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+}
+
+:root[data-theme="dark"] .pill,
+:root[data-theme="dark"] .issuePillBtn,
+:root[data-theme="dark"] .panelFlowControls,
+:root[data-theme="dark"] .panelFlowControlBtn,
+:root[data-theme="dark"] .floatingEditorActionBtn {
+  box-shadow: none;
+}
+
+/* Override React Flow default control styles to match the app theme */
+.react-flow__controls button {
+  border-radius: 10px !important;
+  border: 1px solid var(--border) !important;
+}
+
+.react-flow__controls button:hover {
+  border-color: var(--color-primary) !important;
+}
+
+/* Responsive design: Make panels take full width on smaller screens */
+@media (max-width: 1100px) {
+  .panelsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 420px) {
+  .transitionColumns,
+  .transitionRow {
+    grid-template-columns: 1fr;
+  }
+}

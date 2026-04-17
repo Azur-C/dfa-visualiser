@@ -1,0 +1,176 @@
+/* Global CSS Variables for consistent theming and layout dimensions */
+:root {
+  /* Layout dimensions */
+  --topbar-h: 56px;
+  --leftbar-w: 56px;
+  --rightbar-w: 360px;
+
+  /* Theme colors */
+  --color-primary: #3da9fc; /* water blue */
+  --color-primary-hover: #2f90e6;
+
+  /* UI colors */
+  --border: #e6e8eb;
+  --bg: #ffffff;
+  --bg-soft: #f5f7fb;
+  --text: #1f2937;
+  --text-heading: #223;
+  --text-muted: #445;
+  --text-soft: #667085;
+  --surface: #ffffff;
+  --surface-elevated: #ffffff;
+  --surface-soft: #f8fafc;
+  --surface-tint: #eaf5ff;
+  --surface-tint-soft: #eef7ff;
+  --field-bg: #ffffff;
+  --field-readonly-bg: #f8fafc;
+  --disabled-bg: #f5f7fb;
+  --disabled-text: #7b8694;
+  --danger: #b42318;
+  --danger-bg: #fff1f2;
+  --danger-soft-bg: #fff6f7;
+  --danger-border: #f2c7cd;
+  --danger-border-strong: #e8929d;
+  --warning: #9a6700;
+  --warning-bg: #fff6df;
+  --warning-border: #f3d8a7;
+  --success: #17603a;
+  --success-bg: #eaf8ef;
+  --success-border: #b8e3c5;
+  --overlay: rgba(15, 23, 42, 0.24);
+  --shadow-soft: 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-dialog: 0 22px 60px rgba(15, 23, 42, 0.22);
+  --focus-ring: rgba(61, 169, 252, 0.25);
+  --dfa-node-bg: #ffffff;
+  --dfa-node-text: #111827;
+  --dfa-node-stroke: #111827;
+  --dfa-accept: #2f9e44;
+  --graph-edge: #111827;
+  --edge-label-bg: rgba(255, 255, 255, 0.9);
+  --edge-label-text: #111827;
+  --edge-label-shadow: 0 0 2px rgba(0,0,0,0.1);
+  --badge-bg: #eef7ff;
+  --badge-text: #155e95;
+  --badge-border: #cfe9ff;
+  --badge-success-bg: #eaf8ef;
+  --badge-success-text: #17603a;
+  --badge-success-border: #b8e3c5;
+  --badge-minimal-bg: #ecfbf7;
+  --badge-minimal-text: #0f766e;
+  --badge-minimal-border: #9fded4;
+  --canvas-control-bg: #ffffff;
+  --canvas-control-hover-bg: #f8fafc;
+  --canvas-control-text: #334155;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-primary: #60a5fa;
+  --color-primary-hover: #93c5fd;
+  --border: #334155;
+  --bg: #0f172a;
+  --bg-soft: #111827;
+  --text: #e5e7eb;
+  --text-heading: #f8fafc;
+  --text-muted: #cbd5e1;
+  --text-soft: #94a3b8;
+  --surface: #1e293b;
+  --surface-elevated: #263449;
+  --surface-soft: #111827;
+  --surface-tint: #172033;
+  --surface-tint-soft: #172a3f;
+  --field-bg: #0f172a;
+  --field-readonly-bg: #172033;
+  --disabled-bg: #1e293b;
+  --disabled-text: #94a3b8;
+  --danger: #fca5a5;
+  --danger-bg: #451a1a;
+  --danger-soft-bg: #3f1d22;
+  --danger-border: #7f1d1d;
+  --danger-border-strong: #ef4444;
+  --warning: #fbbf24;
+  --warning-bg: #2f220b;
+  --warning-border: #7c5b18;
+  --success: #86efac;
+  --success-bg: #123524;
+  --success-border: #166534;
+  --overlay: rgba(2, 6, 23, 0.68);
+  --shadow-soft: 0 1px 2px rgba(0,0,0,0.35);
+  --shadow-dialog: 0 22px 60px rgba(0, 0, 0, 0.48);
+  --focus-ring: rgba(96, 165, 250, 0.3);
+  --dfa-node-bg: #172033;
+  --dfa-node-text: #e5e7eb;
+  --dfa-node-stroke: #94a3b8;
+  --dfa-accept: #f59e0b;
+  --graph-edge: #cbd5e1;
+  --edge-label-bg: rgba(15, 23, 42, 0.92);
+  --edge-label-text: #e5e7eb;
+  --edge-label-shadow: 0 0 2px rgba(255,255,255,0.14);
+  --badge-bg: #111827;
+  --badge-text: #dbeafe;
+  --badge-border: #475569;
+  --badge-success-bg: #12261f;
+  --badge-success-text: #86efac;
+  --badge-success-border: #2f6f53;
+  --badge-minimal-bg: #102a33;
+  --badge-minimal-text: #67e8f9;
+  --badge-minimal-border: #155e75;
+  --canvas-control-bg: #111827;
+  --canvas-control-hover-bg: #1f2937;
+  --canvas-control-text: #cbd5e1;
+}
+
+:root[data-theme="colourBlind"] {
+  color-scheme: light;
+  --color-primary: #0072b2;
+  --color-primary-hover: #005a8c;
+  --border: #b7c7d8;
+  --bg: #ffffff;
+  --bg-soft: #f2f6f8;
+  --text: #111827;
+  --text-heading: #111827;
+  --text-muted: #25364a;
+  --text-soft: #475569;
+  --surface: #ffffff;
+  --surface-elevated: #ffffff;
+  --surface-soft: #f7fafc;
+  --surface-tint: #e8f3f8;
+  --surface-tint-soft: #edf7fb;
+  --field-bg: #ffffff;
+  --field-readonly-bg: #f2f6f8;
+  --disabled-bg: #eef2f6;
+  --disabled-text: #5f6f82;
+  --danger: #d55e00;
+  --danger-bg: #fff3e6;
+  --danger-soft-bg: #fff8ef;
+  --danger-border: #f0b47a;
+  --danger-border-strong: #d55e00;
+  --warning: #a66b00;
+  --warning-bg: #fff4d8;
+  --warning-border: #e6b24a;
+  --success: #0072b2;
+  --success-bg: #e8f3f8;
+  --success-border: #8ac1dd;
+  --focus-ring: rgba(0, 114, 178, 0.28);
+  --dfa-node-bg: #ffffff;
+  --dfa-node-text: #111827;
+  --dfa-node-stroke: #111827;
+  --dfa-accept: #e69f00;
+  --graph-edge: #111827;
+  --edge-label-bg: rgba(255, 255, 255, 0.94);
+  --edge-label-text: #111827;
+  --badge-bg: #e8f3f8;
+  --badge-text: #004b72;
+  --badge-border: #8ac1dd;
+  --badge-success-bg: #fff4d8;
+  --badge-success-text: #7a4d00;
+  --badge-success-border: #e6b24a;
+  --badge-minimal-bg: #e8f3f8;
+  --badge-minimal-text: #004b72;
+  --badge-minimal-border: #8ac1dd;
+  --canvas-control-bg: #ffffff;
+  --canvas-control-hover-bg: #f2f6f8;
+  --canvas-control-text: #25364a;
+}
+
+/* Reset box-sizing for all elements to include padding and border in element's total width and height */

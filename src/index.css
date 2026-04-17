@@ -1,0 +1,43 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Force light theme */
+  color: #1f2937;
+  background-color: #f5f7fb;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #3da9fc;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #2f90e6;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* Keep default button focus visible (optional) */
+button:focus,
+button:focus-visible {
+  outline: 3px solid rgba(61, 169, 252, 0.35);
+  outline-offset: 2px;
+}
