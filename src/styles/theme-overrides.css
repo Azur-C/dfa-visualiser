@@ -26,6 +26,7 @@
 .panelActionBtn,
 .panelIconBtn,
 .textInput,
+.helpItemCard,
 .operationDialogOption,
 .randomDfaToggle,
 .symbolicHelpItem code,
@@ -50,6 +51,9 @@
 
 .workspaceMeta,
 .smallNote,
+.helpDialogSubtitle,
+.helpItemDescription,
+.helpItemDetail,
 .operationDialogNote,
 .operationDialogOptionHint,
 .appDialogMessage,
@@ -63,6 +67,8 @@
 .appDialogTitle,
 .symbolicHelpTitle,
 .panelTitle,
+.helpItemTitle,
+.helpSectionTitle,
 .textFieldLabel,
 .textFieldGroupTitle,
 .emptyTextModeTitle {
@@ -194,9 +200,16 @@
 .emptyTextModeState,
 .transitionEmptyState,
 .issuePanel,
+.helpItemCard,
 .textFieldGroup {
   background: var(--surface-soft);
   border-color: var(--border);
+}
+
+.helpItemIcon {
+  background: var(--surface-tint);
+  border-color: var(--badge-border);
+  color: var(--badge-text);
 }
 
 .panelBody,

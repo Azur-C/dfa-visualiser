@@ -20,6 +20,12 @@
   gap: 14px;
 }
 
+.helpDialog {
+  width: min(760px, calc(100vw - 40px));
+  max-height: min(82vh, 760px);
+  overflow: auto;
+}
+
 .appDialog.danger {
   border-color: #f2c7cd;
 }
@@ -46,6 +52,83 @@
 
 .appDialog.danger .appDialogMessage {
   color: #6b1f16;
+}
+
+.helpDialogSubtitle {
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #64748b;
+}
+
+.helpSection {
+  display: grid;
+  gap: 10px;
+}
+
+.helpSectionTitle {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #1d4f91;
+}
+
+.helpItemGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 10px;
+}
+
+.helpItemCard {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #fbfcff;
+  padding: 12px;
+}
+
+.helpItemCard.textOnly {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.helpItemIcon {
+  width: 46px;
+  height: 46px;
+  border: 1px solid #cfe9ff;
+  border-radius: 14px;
+  background: #eaf5ff;
+  color: #1d4f91;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  font-weight: 900;
+  box-shadow: var(--shadow-soft);
+}
+
+.helpItemText {
+  display: grid;
+  gap: 4px;
+}
+
+.helpItemTitle {
+  font-size: 13px;
+  font-weight: 800;
+  color: #223;
+}
+
+.helpItemDescription,
+.helpItemDetail {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #475569;
+}
+
+.helpItemDetail {
+  color: #64748b;
 }
 
 .appDialogInput {

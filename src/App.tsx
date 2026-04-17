@@ -81,6 +81,7 @@ import { PanelView } from "./components/PanelView"
 import { AppearanceDialog } from "./components/dialogs/AppearanceDialog"
 import { AppDialogModal } from "./components/dialogs/AppDialogModal"
 import { ExportDialog } from "./components/dialogs/ExportDialog"
+import { HelpDialog } from "./components/dialogs/HelpDialog"
 import { OperationsDialog } from "./components/dialogs/OperationsDialog"
 import { RandomDfaDialog } from "./components/dialogs/RandomDfaDialog"
 import { TextHelpDialogs } from "./components/dialogs/TextHelpDialogs"
@@ -111,6 +112,7 @@ export default function App() {
   const [showClassicSymbolHelp, setShowClassicSymbolHelp] = useState(false)
   const [showStateNamingHelp, setShowStateNamingHelp] = useState(false)
   const [showAppearanceDialog, setShowAppearanceDialog] = useState(false)
+  const [showHelpDialog, setShowHelpDialog] = useState(false)
   const [showRandomDfaDialog, setShowRandomDfaDialog] = useState(false)
   const [randomDfaForm, setRandomDfaForm] = useState<RandomDfaFormState>(() => createDefaultRandomDfaForm())
   const [showOperationsDialog, setShowOperationsDialog] = useState(false)
@@ -1419,6 +1421,12 @@ export default function App() {
 
         <button
           className="btn"
+          onClick={() => setShowHelpDialog(true)}
+        >
+          Help
+        </button>
+        <button
+          className="btn"
           onClick={openRandomDfaDialog}
         >
           Random DFA
@@ -1927,6 +1935,11 @@ export default function App() {
           onCloseSymbolicHelp={() => setShowSymbolicHelp(false)}
           onCloseClassicSymbolHelp={() => setShowClassicSymbolHelp(false)}
           onCloseStateNamingHelp={() => setShowStateNamingHelp(false)}
+        />
+
+        <HelpDialog
+          isOpen={showHelpDialog}
+          onClose={() => setShowHelpDialog(false)}
         />
 
         <AppearanceDialog
