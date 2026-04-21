@@ -3,7 +3,6 @@
   line-height: 1.5;
   font-weight: 400;
 
-  /* Force light theme */
   color: #1f2937;
   background-color: #f5f7fb;
 
@@ -35,7 +34,6 @@ body {
   min-height: 100vh;
 }
 
-/* Keep default button focus visible (optional) */
 button:focus,
 button:focus-visible {
   outline: 3px solid rgba(61, 169, 252, 0.35);

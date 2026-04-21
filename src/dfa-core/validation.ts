@@ -1,4 +1,3 @@
-// src/dfa-core/validation.ts
 import type { DFA, StateID, SymbolID } from "./types";
 
 export type ValidationSeverity = "error" | "warning";

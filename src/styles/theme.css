@@ -1,15 +1,12 @@
-/* Global CSS Variables for consistent theming and layout dimensions */
 :root {
-  /* Layout dimensions */
+
   --topbar-h: 56px;
   --leftbar-w: 56px;
   --rightbar-w: 360px;
 
-  /* Theme colors */
-  --color-primary: #3da9fc; /* water blue */
+  --color-primary: #3da9fc;
   --color-primary-hover: #2f90e6;
 
-  /* UI colors */
   --border: #e6e8eb;
   --bg: #ffffff;
   --bg-soft: #f5f7fb;
@@ -172,5 +169,3 @@
   --canvas-control-hover-bg: #f2f6f8;
   --canvas-control-text: #25364a;
 }
-
-/* Reset box-sizing for all elements to include padding and border in element's total width and height */

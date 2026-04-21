@@ -34,9 +34,6 @@ export function FloatingEdge({ id, source, target, markerEnd, style, label, inte
 
       edgePath = `M ${sx} ${sy} Q ${cx} ${cy} ${tx} ${ty}`;
 
-      // For a quadratic bezier curve Q(cx, cy), the midpoint (t=0.5) is at:
-      // x = 0.25*sx + 0.5*cx + 0.25*tx
-      // y = 0.25*sy + 0.5*cy + 0.25*ty
       labelX = 0.25 * sx + 0.5 * cx + 0.25 * tx;
       labelY = 0.25 * sy + 0.5 * cy + 0.25 * ty;
     }
@@ -64,7 +61,6 @@ export function FloatingEdge({ id, source, target, markerEnd, style, label, inte
               padding: '2px 4px',
               borderRadius: 4,
               color: 'var(--edge-label-text)',
-              // Add a subtle border/shadow to make it stand out from the line
               boxShadow: 'var(--edge-label-shadow)',
             }}
             className="nodrag nopan"

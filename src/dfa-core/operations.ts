@@ -1,4 +1,3 @@
-// src/dfa-core/operations.ts
 import type { DFA, StateID } from "./types";
 import { makeTotalDFA } from "./normalize";
 import { productDFA } from "./product";

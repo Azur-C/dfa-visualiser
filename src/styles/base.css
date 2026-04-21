@@ -2,7 +2,6 @@
   box-sizing: border-box;
 }
 
-/* Base styles for the entire document */
 html,
 body,
 #root {
@@ -11,20 +10,18 @@ body,
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  /* Modern system font stack for optimal readability across different OS */
+
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
     "Apple Color Emoji", "Segoe UI Emoji";
 }
 
-/* Main application container layout */
 .app {
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-rows: var(--topbar-h) 1fr; /* Fixed topbar, remaining space for content */
+  grid-template-rows: var(--topbar-h) 1fr;
 }
 
-/* Top bar container styling */
 .topbar {
   height: var(--topbar-h);
   display: flex;
@@ -35,18 +32,15 @@ body,
   background: var(--bg);
 }
 
-/* Brand logo/text styling */
 .brand {
   font-weight: 800;
   letter-spacing: 0.2px;
 }
 
-/* Flexible spacer to push items to the right in the topbar */
 .topbar .spacer {
   flex: 1;
 }
 
-/* General button styling in the topbar */
 .topbar .btn {
   border: 1px solid var(--border);
   background: #fff;
@@ -71,7 +65,6 @@ body,
   border-color: var(--border);
 }
 
-/* Primary highlighted button styling */
 .topbar .btn.primary {
   background: var(--color-primary);
   border-color: var(--color-primary);
@@ -84,7 +77,6 @@ body,
   border-color: var(--color-primary-hover);
 }
 
-/* Segmented control container (like toggle groups) */
 .topbar .seg {
   display: flex;
   border: 1px solid var(--border);
@@ -92,7 +84,6 @@ body,
   overflow: hidden;
 }
 
-/* Segmented control individual buttons */
 .topbar .seg button {
   border: none;
   background: #fff;
@@ -105,27 +96,23 @@ body,
   background: #eaf5ff;
 }
 
-/* Active state for segmented control buttons */
 .topbar .seg button.active {
   background: var(--color-primary);
   color: #fff;
 }
 
-/* Main body layout: left toolbar + center workspace */
 .body {
-  height: calc(100vh - var(--topbar-h)); /* Fill remaining height below topbar */
+  height: calc(100vh - var(--topbar-h));
   width: 100%;
   display: grid;
-  grid-template-columns: var(--leftbar-w) 1fr; /* Fixed leftbar, flexible workspace */
-  min-width: 0; /* Prevent grid blowout */
+  grid-template-columns: var(--leftbar-w) 1fr;
+  min-width: 0;
 }
 
-/* Body layout when Text Mode is enabled: adds right sidebar */
 .body.textMode {
   grid-template-columns: var(--leftbar-w) 1fr var(--rightbar-w);
 }
 
-/* Left sidebar (toolbar) container */
 .leftbar {
   border-right: 1px solid var(--border);
   background: #eaf5ff;
@@ -135,7 +122,6 @@ body,
   gap: 8px;
 }
 
-/* Individual tool buttons in the left sidebar */
 .toolbtn {
   width: 40px;
   height: 40px;
@@ -144,7 +130,7 @@ body,
   background: #fff;
   cursor: pointer;
   display: grid;
-  place-items: center; /* Center icon/text both vertically and horizontally */
+  place-items: center;
   font-weight: 800;
   color: var(--text);
   box-shadow: 0 1px 2px rgba(0,0,0,0.06);
@@ -165,17 +151,13 @@ body,
   border-color: var(--border);
 }
 
-/* Active state for tool buttons */
 .toolbtn.active {
   border-color: var(--color-primary);
   background: #eaf5ff;
 }
 
-/* Divider line between tool groups */
 .leftbar .divider {
   height: 1px;
   background: var(--border);
   margin: 6px 0;
 }
-
-/* Center workspace container holding DFA panels */

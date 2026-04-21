@@ -1,9 +1,9 @@
 .workspace {
-  min-width: 0; /* Prevent flex/grid blowout */
+  min-width: 0;
   width: 100%;
   background: var(--bg-soft);
   padding: 14px;
-  overflow: auto; /* Allow scrolling if panels overflow */
+  overflow: auto;
 }
 
 .workspaceHeader {
@@ -27,7 +27,6 @@
   margin-left: auto;
 }
 
-/* Grid layout for DFA visualizer panels */
 .panelsGrid {
   display: grid;
   gap: 14px;
@@ -41,7 +40,6 @@
   grid-template-columns: minmax(0, 1fr);
 }
 
-/* Individual DFA Panel styling */
 .panel {
   min-width: 0;
   background: #fff;
@@ -49,10 +47,9 @@
   border-radius: 14px;
   overflow: hidden;
   display: grid;
-  grid-template-rows: auto 420px; /* Header auto height, fixed canvas height */
+  grid-template-rows: auto 420px;
 }
 
-/* Panel header containing title and badges */
 .panelHeader {
   padding: 10px 12px;
   border-bottom: 1px solid var(--border);
@@ -195,4 +192,3 @@
   height: 30px;
   border-radius: 8px;
 }
-

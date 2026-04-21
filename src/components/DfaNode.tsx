@@ -34,7 +34,6 @@ export function DfaNode(props: { data: StateNodeData; selected?: boolean; isConn
     opacity: 0,
     borderRadius: "50%",
     zIndex: 10,
-    // Only show crosshair and allow pointer events on handle when in connection mode
     cursor: isConnectable ? "crosshair" : "default",
     pointerEvents: isConnectable ? "all" : "none",
   };

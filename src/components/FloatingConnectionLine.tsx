@@ -32,8 +32,6 @@ export function FloatingConnectionLine({
     id: 'connection-target',
     width: 1,
     height: 1,
-    // Add small offset to pointer coordinates to prevent the target node
-    // from blocking mouse events which prevents onNodeMouseEnter from firing
     position: { x: toX + 5, y: toY + 5 },
     positionAbsolute: { x: toX + 5, y: toY + 5 },
     data: {},

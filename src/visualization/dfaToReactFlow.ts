@@ -1,4 +1,3 @@
-// src/visualization/dfaToReactFlow.ts
 import type { DFA, StateID, SymbolID } from "../dfa-core/types"
 import type { Node, Edge } from "reactflow"
 import { MarkerType } from "reactflow"
@@ -11,7 +10,7 @@ type LayoutOptions = {
 
 export type StateNodeData = {
     label: string
-    stateId?: StateID            // "__start__" 没有
+    stateId?: StateID
     isAccept?: boolean
     isStart?: boolean
 }
@@ -23,11 +22,6 @@ export type TransitionEdgeData = {
     isDraft?: boolean
 }
 
-/**
- * DFA -> React Flow
- * - Accept states: thicker border
- * - Merges transitions with same (from,to): label "a, b, c"
- */
 export function dfaToReactFlow(
     dfa: DFA,
     opts: LayoutOptions = {}
@@ -36,7 +30,6 @@ export function dfaToReactFlow(
     const radius = opts.radius ?? 220
     const center = opts.center ?? { x: 360, y: 260 }
 
-    // Simple circular layout
     const pos: Record<string, { x: number; y: number }> = {}
     const n = Math.max(states.length, 1)
     for (let i = 0; i < states.length; i++) {
@@ -61,7 +54,6 @@ export function dfaToReactFlow(
         })
     }
 
-    // merge transitions by (from,to)
     const merge = new Map<
         string,
         { from: StateID; to: StateID; syms: SymbolID[] }

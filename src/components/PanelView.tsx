@@ -135,9 +135,6 @@ function buildFlowEdges(
   return [...displayEdges, ...draftOnly]
 }
 
-/**
- * Panel view (single ReactFlow canvas)
- */
 export function PanelView(props: {
   panel: Panel
   isActive: boolean
@@ -190,7 +187,6 @@ export function PanelView(props: {
 
   const didInitNodesRef = useRef(false)
 
-  // Use a ref to track if we are currently dragging a connection
   const isConnectingRef = useRef(false)
   const connectionSourceIdRef = useRef<StateID | null>(null)
   const hoveredConnectTargetRef = useRef<StateID | null>(null)

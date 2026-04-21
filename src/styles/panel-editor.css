@@ -96,7 +96,6 @@
   border-color: #78bdf5;
 }
 
-/* Small informational badges (like states count, accept count) */
 .pill {
   border: 1px solid #cfe9ff;
   background: #eef7ff;
@@ -207,7 +206,6 @@
   line-height: 1;
 }
 
-/* Panel body where the React Flow canvas is rendered */
 .panelBody {
   min-width: 0;
   min-height: 0;
@@ -260,7 +258,6 @@
   color: #17603a;
 }
 
-/* Make target nodes glow when dragging a connection over them */
 .react-flow__node.target-glow .custom-dfa-node {
   box-shadow: 0 0 0 4px rgba(255, 165, 0, 0.6) !important;
   border-color: #ffa500 !important;
@@ -382,7 +379,6 @@
   color: #334155;
 }
 
-/* Right sidebar container (used in Text Mode for code editing) */
 .rightbar {
   border-left: 1px solid var(--border);
   background: #fff;
@@ -660,7 +656,6 @@
     "Liberation Mono", "Courier New", monospace;
 }
 
-/* Inline field error messages */
 .textFieldErrors {
   display: grid;
   gap: 4px;
@@ -672,10 +667,8 @@
   color: #b42318;
 }
 
-/* Helper text below the textbox */
 .smallNote {
   font-size: 12px;
   color: #445;
   margin-top: 10px;
 }
-

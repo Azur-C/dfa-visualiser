@@ -289,7 +289,6 @@
   box-shadow: none;
 }
 
-/* Override React Flow default control styles to match the app theme */
 .react-flow__controls button {
   border-radius: 10px !important;
   border: 1px solid var(--border) !important;
@@ -299,7 +298,6 @@
   border-color: var(--color-primary) !important;
 }
 
-/* Responsive design: Make panels take full width on smaller screens */
 @media (max-width: 1100px) {
   .panelsGrid {
     grid-template-columns: 1fr;
