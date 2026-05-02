@@ -1,73 +1,110 @@
-# React + TypeScript + Vite
+# DFA Visualiser
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live demo: https://dfa-visualiser.vercel.app/
 
-Currently, two official plugins are available:
+DFA Visualiser is a web application for creating, editing, viewing, and transforming deterministic finite automata (DFAs).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+It supports both graphical editing on a canvas and structured editing in text form, making it useful for building automata, checking their structure, and exporting the results.
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Create and edit DFAs visually
+- Edit DFAs in text mode
+- Switch between classic and symbolic input modes
+- Validate DFAs and highlight common issues
+- Generate random DFAs
+- Run DFA operations: complement, minimisation, union, and intersection
+- Import DFAs from JSON
+- Export DFAs as JSON, SVG, or PNG
+- Work with multiple DFA panels in one workspace
 
-## Expanding the ESLint configuration
+## Input Modes
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Classic Mode
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Classic mode uses single lowercase letters or digits as transition symbols.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Examples:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- `a`
+- `b`
+- `0`
+
+### Symbolic Mode
+
+Symbolic mode supports predicate-style labels over the fixed domain `[a-z][0-9]`.
+
+Examples:
+
+- `letter`
+- `digit`
+- `alnum`
+- `[a-z]`
+- `[0-9]`
+- `[a-f]`
+- `not digit`
+
+## Running the Project
+
+### Requirements
+
+- Node.js
+- npm
+
+### Install Dependencies
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Start the Development Server
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+### Build the Project
+
+```bash
+npm run build
+```
+
+### Preview the Production Build
+
+```bash
+npm run preview
+```
+
+### Run Linting
+
+```bash
+npm run lint
+```
+
+## Project Structure
+
+```text
+dfa-editor/
+|-- public/                  Static assets
+|-- src/
+|   |-- appearance/          Theme and appearance helpers
+|   |-- components/          UI components and dialogs
+|   |-- dfa-core/            DFA logic and algorithms
+|   |-- io/                  Import and export helpers
+|   |-- styles/              CSS styles
+|   |-- symbolic/            Symbolic parsing and operations
+|   |-- text/                Text-mode form logic
+|   |-- utils/               Shared utilities
+|   |-- visualization/       Graph and export rendering
+|   |-- workspace/           Workspace and history state
+|   |-- App.tsx              Main application
+|   `-- main.tsx             Entry point
+|-- index.html
+|-- package.json
+`-- vite.config.ts
+```
+
+## Limits
+
+- The workspace supports up to 4 DFA panels.
+- A single DFA supports up to 100 states.
