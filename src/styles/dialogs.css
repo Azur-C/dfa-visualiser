@@ -53,6 +53,16 @@
   overflow: auto;
 }
 
+.helpDialogHeader {
+  position: sticky;
+  top: -14px;
+  z-index: 2;
+  margin: -14px -14px 0;
+  padding: 14px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
 .appDialog.danger {
   border-color: #f2c7cd;
 }

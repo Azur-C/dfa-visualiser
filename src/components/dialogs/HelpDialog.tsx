@@ -6,7 +6,23 @@ type HelpDialogProps = {
   onClose: () => void
 }
 
-type HelpIconName = "select" | "state" | "transition" | "undo" | "redo" | "layout" | "panel" | "text" | "operations" | "io"
+type HelpIconName =
+  | "select"
+  | "state"
+  | "transition"
+  | "undo"
+  | "redo"
+  | "layout"
+  | "panel"
+  | "text"
+  | "operations"
+  | "io"
+  | "check"
+  | "zoomIn"
+  | "zoomOut"
+  | "fit"
+  | "lock"
+  | "appearance"
 
 type HelpItem = {
   icon: HelpIconName
@@ -32,6 +48,39 @@ function HelpIcon({ name }: { name: HelpIconName }) {
     )
   }
 
+  if (name === "fit") {
+    return (
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M4 9V4h5v2H6v3H4Zm10-5h6v6h-2V6h-4V4ZM4 15h2v3h3v2H4v-5Zm14 3v-3h2v5h-5v-2h3Z"
+          fill="currentColor"
+        />
+      </svg>
+    )
+  }
+
+  if (name === "lock") {
+    return (
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M17 9h-1V7a4 4 0 1 0-8 0v2H7a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2Zm-7-2a2 2 0 1 1 4 0v2h-4V7Zm7 12H7v-8h10v8Z"
+          fill="currentColor"
+        />
+      </svg>
+    )
+  }
+
+  if (name === "appearance") {
+    return (
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M12 3a9 9 0 1 0 0 18V3Zm2 2.3a7 7 0 0 1 0 13.4V5.3Z"
+          fill="currentColor"
+        />
+      </svg>
+    )
+  }
+
   if (name === "panel") return <span aria-hidden="true">+</span>
   if (name === "state") return <span aria-hidden="true">ⓠ</span>
   if (name === "transition") return <span aria-hidden="true">→</span>
@@ -39,6 +88,9 @@ function HelpIcon({ name }: { name: HelpIconName }) {
   if (name === "redo") return <span aria-hidden="true">↷</span>
   if (name === "text") return <span aria-hidden="true">T</span>
   if (name === "operations") return <span aria-hidden="true">∩</span>
+  if (name === "check") return <span aria-hidden="true">✓</span>
+  if (name === "zoomIn") return <span aria-hidden="true">+</span>
+  if (name === "zoomOut") return <span aria-hidden="true">−</span>
   return <span aria-hidden="true">{`{}`}</span>
 }
 
@@ -100,6 +152,12 @@ const workflowHelpItems: HelpItem[] = [
     detail: "Examples include letter, digit, [a-z], [0-9], and not digit. Predicates are interpreted over the fixed a-z and 0-9 domain.",
   },
   {
+    icon: "check",
+    title: "Check String",
+    description: "Test whether a string is accepted by a DFA in an existing panel.",
+    detail: "Choose a panel, enter the input string, then run the check. The result shows the final state and the transition path.",
+  },
+  {
     icon: "panel",
     title: "Random DFA",
     description: "Generate a complete DFA in a new panel.",
@@ -115,6 +173,36 @@ const workflowHelpItems: HelpItem[] = [
     icon: "io",
     title: "Import / Export",
     description: "Export a DFA as JSON for re-import, or save the current visualisation as SVG or PNG.",
+  },
+  {
+    icon: "appearance",
+    title: "Appearance",
+    description: "Change the editor theme.",
+    detail: "Choose between light, dark, and colour-blind friendly themes. The selection is saved for future visits.",
+  },
+]
+
+const panelControlHelpItems: HelpItem[] = [
+  {
+    icon: "zoomIn",
+    title: "Zoom In",
+    description: "Increase the zoom level of the current panel canvas.",
+  },
+  {
+    icon: "zoomOut",
+    title: "Zoom Out",
+    description: "Decrease the zoom level of the current panel canvas.",
+  },
+  {
+    icon: "fit",
+    title: "Fit View",
+    description: "Recenter and scale the canvas so the DFA fits inside the panel.",
+  },
+  {
+    icon: "lock",
+    title: "Lock / Unlock",
+    description: "Toggle read-only mode for the panel.",
+    detail: "Locked panels cannot be edited until they are unlocked again.",
   },
 ]
 
@@ -141,7 +229,7 @@ export function HelpDialog({ isOpen, onClose }: HelpDialogProps) {
   return (
     <div className="appDialogOverlay">
       <div className="appDialog helpDialog" onMouseDown={(event) => event.stopPropagation()}>
-        <div className="appDialogHeader">
+        <div className="appDialogHeader helpDialogHeader">
           <div>
             <div className="appDialogTitle">Help</div>
             <div className="helpDialogSubtitle">A quick guide to the main editor controls.</div>
@@ -171,6 +259,15 @@ export function HelpDialog({ isOpen, onClose }: HelpDialogProps) {
           <div className="helpItemGrid">
             {workflowHelpItems.map((item) => (
               <HelpItemCard key={item.title} item={item} showIcon={false} />
+            ))}
+          </div>
+        </div>
+
+        <div className="helpSection">
+          <div className="helpSectionTitle">Panel Controls</div>
+          <div className="helpItemGrid">
+            {panelControlHelpItems.map((item) => (
+              <HelpItemCard key={item.title} item={item} />
             ))}
           </div>
         </div>
