@@ -6,11 +6,13 @@
   display: grid;
   place-items: center;
   padding: 20px;
+  animation: appDialogOverlayFade 140ms ease-out;
 }
 
 .appDialog {
   width: min(460px, calc(100vw - 40px));
   max-width: 100%;
+  min-width: 0;
   background: #fff;
   border: 1px solid var(--border);
   border-radius: 16px;
@@ -18,6 +20,31 @@
   padding: 14px;
   display: grid;
   gap: 14px;
+  animation: appDialogPanelIn 160ms ease-out;
+}
+
+.appDialog > * {
+  min-width: 0;
+}
+
+@keyframes appDialogOverlayFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes appDialogPanelIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .helpDialog {
@@ -135,6 +162,10 @@
   font-size: 13px;
 }
 
+.appDialog .textInput {
+  min-width: 0;
+}
+
 .appDialogActions {
   display: flex;
   justify-content: flex-end;
@@ -150,11 +181,13 @@
 .operationDialogSelection {
   display: grid;
   gap: 12px;
+  min-width: 0;
 }
 
 .operationDialogField {
   display: grid;
   gap: 6px;
+  min-width: 0;
 }
 
 .operationDialogOption {
@@ -207,6 +240,130 @@
   font-size: 12px;
   line-height: 1.5;
   color: #6b7280;
+}
+
+.stringCheckDialog {
+  width: min(520px, calc(100vw - 40px));
+  max-height: min(82vh, 760px);
+  overflow: auto;
+}
+
+.stringCheckAlphabet {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-soft);
+  overflow-wrap: anywhere;
+}
+
+.stringCheckResult {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  background: var(--surface-soft);
+}
+
+.stringCheckResult.accepted {
+  border-color: var(--success-border);
+  background: var(--success-bg);
+}
+
+.stringCheckResult.rejected {
+  border-color: var(--warning-border);
+  background: var(--warning-bg);
+}
+
+.stringCheckResult.invalid {
+  border-color: var(--danger-border);
+  background: var(--danger-bg);
+}
+
+.stringCheckResultHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.stringCheckResultLabel {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text-heading);
+}
+
+.stringCheckResult.accepted .stringCheckResultLabel {
+  color: var(--success);
+}
+
+.stringCheckResult.rejected .stringCheckResultLabel {
+  color: var(--warning);
+}
+
+.stringCheckResult.invalid .stringCheckResultLabel {
+  color: var(--danger);
+}
+
+.stringCheckResultMeta,
+.stringCheckResultMessage {
+  min-width: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  overflow-wrap: anywhere;
+}
+
+.stringCheckTrace {
+  max-height: 150px;
+  overflow: auto;
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--field-bg);
+  padding: 8px;
+}
+
+.stringCheckTraceStep {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  color: var(--text);
+  font-size: 12px;
+}
+
+.stringCheckTraceStep:first-child {
+  grid-template-columns: 52px minmax(0, 1fr);
+}
+
+.stringCheckTraceStep.stopped {
+  color: var(--danger);
+}
+
+.stringCheckTraceIndex {
+  color: var(--text-soft);
+  font-weight: 800;
+}
+
+.stringCheckTraceState {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.stringCheckTraceSymbol {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-tint-soft);
+  color: var(--text-heading);
+  padding: 2px 7px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
 }
 
 .randomDfaToggleGrid {
@@ -406,4 +563,11 @@
   font-size: 12px;
   line-height: 1.5;
   color: var(--text-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .appDialogOverlay,
+  .appDialog {
+    animation: none;
+  }
 }

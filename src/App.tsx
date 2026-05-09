@@ -7,6 +7,7 @@ import type { DFA } from "./dfa-core/types"
 import { unionDFA, intersectionDFA, complementDFA } from "./dfa-core/operations"
 import { ProductStateLimitError } from "./dfa-core/product"
 import { isMinimalDfaForMode, minimizeDfaForMode } from "./dfa-core/modeOperations"
+import { checkDfaString, type DfaStringCheckResult } from "./dfa-core/recognition"
 import {
   getSymbolicDomainSymbols,
   type AutomatonInputMode,
@@ -83,6 +84,7 @@ import { ExportDialog } from "./components/dialogs/ExportDialog"
 import { HelpDialog } from "./components/dialogs/HelpDialog"
 import { OperationsDialog } from "./components/dialogs/OperationsDialog"
 import { RandomDfaDialog } from "./components/dialogs/RandomDfaDialog"
+import { StringCheckDialog } from "./components/dialogs/StringCheckDialog"
 import { TextHelpDialogs } from "./components/dialogs/TextHelpDialogs"
 import { isEditableTarget } from "./utils/dom"
 import { getDeleteTransitionMessage } from "./utils/transitionLabels"
@@ -112,6 +114,10 @@ export default function App() {
   const [showStateNamingHelp, setShowStateNamingHelp] = useState(false)
   const [showAppearanceDialog, setShowAppearanceDialog] = useState(false)
   const [showHelpDialog, setShowHelpDialog] = useState(false)
+  const [showStringCheckDialog, setShowStringCheckDialog] = useState(false)
+  const [stringCheckPanelId, setStringCheckPanelId] = useState("")
+  const [stringCheckInput, setStringCheckInput] = useState("")
+  const [stringCheckResult, setStringCheckResult] = useState<DfaStringCheckResult | null>(null)
   const [showRandomDfaDialog, setShowRandomDfaDialog] = useState(false)
   const [randomDfaForm, setRandomDfaForm] = useState<RandomDfaFormState>(() => createDefaultRandomDfaForm())
   const [showOperationsDialog, setShowOperationsDialog] = useState(false)
@@ -483,6 +489,39 @@ export default function App() {
     }))
     resetTextEditingState()
     setTextPanelId(id)
+  }
+
+  function openStringCheckDialog() {
+    const defaultPanelId = activePanel?.id ?? panels[0]?.id ?? ""
+
+    setStringCheckPanelId((current) =>
+      panels.some((panel) => panel.id === current) ? current : defaultPanelId
+    )
+    setStringCheckResult(null)
+    setShowStringCheckDialog(true)
+  }
+
+  function closeStringCheckDialog() {
+    setShowStringCheckDialog(false)
+    setStringCheckResult(null)
+  }
+
+  function updateStringCheckPanel(panelId: string) {
+    setStringCheckPanelId(panelId)
+    setStringCheckResult(null)
+  }
+
+  function updateStringCheckInput(value: string) {
+    setStringCheckInput(value)
+    setStringCheckResult(null)
+  }
+
+  function runStringCheck() {
+    const panel = panels.find((candidate) => candidate.id === stringCheckPanelId) ?? panels[0]
+    if (!panel) return
+
+    setStringCheckPanelId(panel.id)
+    setStringCheckResult(checkDfaString(panel.dfa, stringCheckInput))
   }
 
   function openRandomDfaDialog() {
@@ -1033,6 +1072,22 @@ export default function App() {
   }, [automatonMode])
 
   useEffect(() => {
+    if (!showStringCheckDialog) return
+
+    const fallbackId = activePanelId || panels[0]?.id || ""
+    if (!fallbackId) {
+      setStringCheckPanelId("")
+      setStringCheckResult(null)
+      return
+    }
+
+    if (panels.some((panel) => panel.id === stringCheckPanelId)) return
+
+    setStringCheckPanelId(fallbackId)
+    setStringCheckResult(null)
+  }, [activePanelId, panels, showStringCheckDialog, stringCheckPanelId])
+
+  useEffect(() => {
     if (mode !== "text") {
       setShowClassicSymbolHelp(false)
       setShowStateNamingHelp(false)
@@ -1423,6 +1478,14 @@ export default function App() {
           onClick={() => setShowHelpDialog(true)}
         >
           Help
+        </button>
+        <button
+          className="btn"
+          onClick={openStringCheckDialog}
+          disabled={panels.length === 0}
+          title={panels.length === 0 ? "Create or import a panel first" : "Check a string against a panel DFA"}
+        >
+          Check String
         </button>
         <button
           className="btn"
@@ -1955,6 +2018,19 @@ export default function App() {
           onSelectedPanelChange={setExportPanelId}
           onClose={closeExportDialog}
           onExport={exportSelectedPanel}
+        />
+
+        <StringCheckDialog
+          isOpen={showStringCheckDialog}
+          panels={panels}
+          selectedPanelId={stringCheckPanelId}
+          inputValue={stringCheckInput}
+          result={stringCheckResult}
+          automatonMode={automatonMode}
+          onSelectedPanelChange={updateStringCheckPanel}
+          onInputChange={updateStringCheckInput}
+          onCheck={runStringCheck}
+          onClose={closeStringCheckDialog}
         />
 
         <RandomDfaDialog
